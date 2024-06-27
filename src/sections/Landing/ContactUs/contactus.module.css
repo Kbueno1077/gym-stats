@@ -1,0 +1,6 @@
+.title {
+  font-family: "darkesofthenight";
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  line-height: normal;
+  color: white;
+}

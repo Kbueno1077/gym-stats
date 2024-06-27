@@ -1,0 +1,12 @@
+.title {
+  font-family: "darkesofthenight";
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.description {
+  margin-top: 10px;
+  text-align: center;
+}

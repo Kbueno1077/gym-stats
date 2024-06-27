@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+
+  @font-face {
+    font-family: "darkesofthenight";
+    src: url("/Darkness of the night.ttf") format("ttf");
+    /* url("/Darkness of the night.ttf") format("opentype"), */
+    /* url("/Darkness of the night.ttf") format("woff2"), */
+    /* url("/Darkness of the night.ttf") format("woff"); */
+  }
+}
+
+@layer base {
+  :root {
+    --color-primary: 110 155 167;
+    --color-secondary: 227 235 238;
+    --color-primarylight: 239 243 244;
+    --color-secondaryDark: 154 186 191;
+
+    --color-success: 0 200 81;
+    --color-info: 51 181 229;
+    --color-warn: 255 187 51;
+    --color-error: 230 57 70;
+
+    /*--color-text: 33 33 33;*/
+    /*--color-default: 33 33 33;*/
+  }
+
+  [data-theme="dark"] {
+    --color-primary: 243 102 71;
+    --color-secondary: 254 224 92;
+
+    --color-success: 0 200 81;
+    --color-info: 51 181 229;
+    --color-warn: 255 187 51;
+    --color-error: 254 78 78;
+
+    /*--color-text: 33 33 33;*/
+    /*--color-default: 33 33 33*/
+  }
+
+  :root[class~="dark"] {
+    --color-primary: 243 102 71;
+    --color-secondary: 254 224 92;
+
+    --color-success: 0 200 81;
+    --color-info: 51 181 229;
+    --color-warn: 255 187 51;
+    --color-error: 254 78 78;
+
+    /*--color-text: 33 33 33;*/
+    /*--color-default: 33 33 33*/
+  }
+}

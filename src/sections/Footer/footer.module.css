@@ -1,0 +1,12 @@
+.footerTitle {
+  font-family: "darkesofthenight";
+  font-size: clamp(1rem, 3vw, 2rem);
+  line-height: normal;
+  margin-top: -8px;
+}
+
+.footerSubtitle {
+  font-family: "darkesofthenight";
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  line-height: normal;
+}

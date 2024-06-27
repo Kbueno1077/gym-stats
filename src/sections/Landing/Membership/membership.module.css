@@ -1,0 +1,13 @@
+.title {
+  font-family: "darkesofthenight";
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: normal;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: clamp(0.5rem, 0.9rem, 1.2rem);
+  line-height: normal;
+  color: rgb(107, 107, 107);
+  text-align: center;
+}
