@@ -26,7 +26,7 @@ html {
     --color-warn: 255 187 51;
     --color-error: 230 57 70;
 
-    /*--color-text: 33 33 33;*/
+    --color-disabled: 33 33 33;
     /*--color-default: 33 33 33;*/
   }
 

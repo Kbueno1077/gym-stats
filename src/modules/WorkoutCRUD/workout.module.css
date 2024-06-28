@@ -1,0 +1,27 @@
+.btn {
+  font-family: "darkesofthenight";
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: normal;
+}
+
+.modalTitle {
+  font-family: "darkesofthenight";
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: normal;
+}
+
+.icon {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.title {
+  font-family: "darkesofthenight";
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: normal;
+}
+
+.subtitle {
+  font-size: clamp(0.5rem, 0.9rem, 1.2rem);
+  line-height: normal;
+  color: rgb(107, 107, 107);
+}

@@ -110,12 +110,23 @@ export default function SettingsDropDown() {
           <DropdownItem
             key="/"
             // shortcut="⌘N"
+            description={"Landing"}
+            startContent={
+              <MdOutlineCollectionsBookmark className={iconClasses} />
+            }
+          >
+            Landing
+          </DropdownItem>
+
+          <DropdownItem
+            key="/today"
+            // shortcut="⌘N"
             description={"Dashboard"}
             startContent={
               <MdOutlineCollectionsBookmark className={iconClasses} />
             }
           >
-            Dashboard
+            Today
           </DropdownItem>
         </DropdownSection>
 

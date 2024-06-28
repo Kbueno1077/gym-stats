@@ -22,6 +22,8 @@ export default {
         primarylight: "rgb(var(--color-primarylight) / 1)",
         secondary: "rgb(var(--color-secondary) / 1)",
         secondaryDark: "rgb(var(--color-secondaryDark) / 1)",
+        disabled: "rgba(var(--color-disabled) / 1)",
+
         // text: "rgb(var(--color-text) / 1)",
         success: "rgb(var(--color-success) / 1)",
         info: "rgb(var(--color-info) / 1)",
