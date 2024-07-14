@@ -1,3 +1,5 @@
+//@ts-ignore
+
 import {
   Accordion,
   AccordionItem,
@@ -50,16 +52,16 @@ export default function AddSet({ bodyPart, exercise }: AddSetProps) {
     setIsDropSet((prev) => !prev);
   };
 
-  const handleDropSetRepsChange = (newReps: DropSet, index: number) => {
+  const handleDropSetRepsChange = (newReps: string, index: number) => {
     const tempDropSets = { ...dropSets };
-    tempDropSets.reps[index] = newReps;
+    tempDropSets.reps[index] = parseFloat(newReps);
 
     setDropSets(tempDropSets);
   };
 
-  const handleDropSetWeigthChange = (newWeigth: DropSet, index: number) => {
+  const handleDropSetWeigthChange = (newWeigth: string, index: number) => {
     const tempDropSets = { ...dropSets };
-    tempDropSets.weights[index] = newWeigth;
+    tempDropSets.weights[index] = parseFloat(newWeigth);
     setDropSets(tempDropSets);
   };
 
@@ -187,7 +189,7 @@ export default function AddSet({ bodyPart, exercise }: AddSetProps) {
                                       type="number"
                                       label={`Weight / ${weightMetric}`}
                                       placeholder={`Weight / ${weightMetric}`}
-                                      value={weight}
+                                      value={weight.toString()}
                                       onChange={(e) => {
                                         handleDropSetWeigthChange(
                                           e.target.value,
@@ -199,7 +201,7 @@ export default function AddSet({ bodyPart, exercise }: AddSetProps) {
                                       type="number"
                                       label={`Reps`}
                                       placeholder={`Reps`}
-                                      value={rep}
+                                      value={rep.toString()}
                                       onChange={(e) => {
                                         handleDropSetRepsChange(
                                           e.target.value,

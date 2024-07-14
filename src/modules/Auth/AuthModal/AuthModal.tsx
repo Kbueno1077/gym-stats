@@ -99,6 +99,7 @@ export default function AuthModal({ mode = "login" }: AuthModalProps) {
         setErrorMessage("result.error.formErrors.fieldErrors.repPassword[0]");
       }
 
+      //@ts-expect-error
       setErrors(result.error.formErrors.fieldErrors);
       setIsLoading(false);
       return;
@@ -194,6 +195,7 @@ export default function AuthModal({ mode = "login" }: AuthModalProps) {
                     size="md"
                     aria-label={"tabs-aria"}
                     selectedKey={selected}
+                    //@ts-expect-error
                     onSelectionChange={setSelected}
                   >
                     <Tab key="login" title={"login"}>
@@ -255,7 +257,7 @@ export default function AuthModal({ mode = "login" }: AuthModalProps) {
                       </form>
 
                       {errorMessage && (
-                        <div className="bg-error mt-4 rounded-lg p-2 text-white ">
+                        <div className="mt-4 rounded-lg bg-error p-2 text-white ">
                           <span>{errorMessage}</span>
                         </div>
                       )}
@@ -345,7 +347,7 @@ export default function AuthModal({ mode = "login" }: AuthModalProps) {
                         </div>
 
                         {errorMessage && (
-                          <div className="bg-error mt-4 rounded-lg p-2 text-white ">
+                          <div className="mt-4 rounded-lg bg-error p-2 text-white ">
                             <span>{errorMessage}</span>
                           </div>
                         )}
