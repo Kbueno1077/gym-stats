@@ -12,8 +12,8 @@ import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import styles from "./workout.module.css";
 import { mapBodyPartToExercises } from "@/utils/exercises";
-import { Excercise } from "@prisma/client";
 import { useGymContext } from "@/store/useGymContext";
+import { Exercise } from "@/store/zustand";
 
 interface AddWorkoutProps {
   bodyPart: string;
@@ -45,7 +45,7 @@ export default function AddWorkout({ bodyPart }: AddWorkoutProps) {
     onOpen();
   };
 
-  const exercises: Excercise[] = bodyPart
+  const exercises: Exercise[] = bodyPart
     ? //@ts-expect-error
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       mapBodyPartToExercises[bodyPart].exercises || []
@@ -87,7 +87,7 @@ export default function AddWorkout({ bodyPart }: AddWorkoutProps) {
 
               <ModalBody>
                 <div className="flex gap-2 overflow-x-auto pb-2">
-                  {exercises.map((exer: Excercise) => {
+                  {exercises.map((exer: Exercise) => {
                     return (
                       <Button
                         key={exer.name}
