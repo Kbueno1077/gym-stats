@@ -1,5 +1,7 @@
 "use client";
 
+import { useGymContext } from "@/store/useGymContext";
+import { bodyParts, mapBodyPartToExercises } from "@/utils/exercises";
 import {
   Button,
   Modal,
@@ -9,12 +11,11 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
+import { Excercise } from "@prisma/client";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import styles from "./workout.module.css";
-import { useGymContext } from "@/store/useGymContext";
-import { bodyParts, mapBodyPartToExercises } from "@/utils/exercises";
 
 export default function CreateWorkout() {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -24,8 +25,10 @@ export default function CreateWorkout() {
   const [bodyPart, setBodyPart] = useState<string>("");
   const [exercise, setExercise] = useState<string>("");
 
-  const exercises = bodyPart
-    ? mapBodyPartToExercises[bodyPart].exercises || []
+  const exercises: Excercise[] = bodyPart
+    ? //@ts-expect-error
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      mapBodyPartToExercises[bodyPart]?.exercises || []
     : [];
 
   const { today, addWorkoutToToday } = useGymContext((state) => {
@@ -49,12 +52,12 @@ export default function CreateWorkout() {
   };
 
   const handleSubmit = () => {
-    const todayExercises = today?.[bodyPart]?.exercises || [];
+    const todayExercises = today?.[bodyPart]?.exercises ?? [];
 
     if (bodyPart) {
       addWorkoutToToday({
         name: bodyPart,
-        exercises: [...todayExercises, exercise],
+        exercises: [...todayExercises, { name: exercise }],
       });
       onClose();
     }
@@ -108,7 +111,7 @@ export default function CreateWorkout() {
                   <>
                     <h1 className={styles.modalTitle}>Starting Exercise</h1>
                     <div className="flex gap-2 overflow-x-auto pb-2">
-                      {exercises.map((exer) => {
+                      {exercises.map((exer: Excercise) => {
                         return (
                           <Button
                             key={exer.name}
@@ -138,7 +141,7 @@ export default function CreateWorkout() {
                 )}
               </ModalBody>
               <ModalFooter>
-                <Button color="primary" onPress={handleSubmit} variant="light">
+                <Button color="primary" onPress={handleSubmit} variant="faded">
                   Create
                 </Button>
               </ModalFooter>

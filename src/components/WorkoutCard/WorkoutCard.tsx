@@ -3,7 +3,6 @@
 import {
   Accordion,
   AccordionItem,
-  Button,
   Card,
   CardBody,
   CardFooter,
@@ -11,14 +10,25 @@ import {
   Divider,
   Image,
 } from "@nextui-org/react";
-import { IoAdd } from "react-icons/io5";
 
-import { IoIosHelpBuoy } from "react-icons/io";
+import AddSet from "@/modules/WorkoutCRUD/AddSet";
 import { FaWeight } from "react-icons/fa";
 import { FaRepeat } from "react-icons/fa6";
 import { GiDroplets } from "react-icons/gi";
+import { IoIosHelpBuoy } from "react-icons/io";
 
-export default function WorkoutCard() {
+interface WorkoutCardProps {
+  exerciseName: string;
+  bodyPart: string;
+  sets?: [];
+  date?: Date;
+  comments?: string;
+}
+
+export default function WorkoutCard({
+  bodyPart,
+  exerciseName,
+}: WorkoutCardProps) {
   return (
     <Card className="w-full p-2 md:min-w-[320px] ">
       <CardHeader className="flex items-center justify-between gap-3">
@@ -38,9 +48,7 @@ export default function WorkoutCard() {
         </div>
 
         <div className="flex gap-2">
-          <Button radius="md" variant="flat" color="primary" isIconOnly>
-            <IoAdd size={22} />
-          </Button>
+          <AddSet bodyPart={bodyPart} exercise={exerciseName} />
         </div>
       </CardHeader>
 

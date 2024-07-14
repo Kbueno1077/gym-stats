@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import AuthModal from "@/modules/Auth/AuthModal/AuthModal";
 import {
   Avatar,
@@ -25,7 +27,7 @@ export default function SettingsDropDown() {
   const { data: session, status } = useSession();
   //   const [selectedKeys, setSelectedKeys] = React.useState(new Set([locale]));
 
-  const handleSelection = async (e) => {
+  const handleSelection = async (e: HTMLAnchorElement) => {
     if (e.anchorKey === "logout") {
       handleClose();
       await signOut({ redirect: false });

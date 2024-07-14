@@ -5,11 +5,14 @@ import AddWorkout from "@/modules/WorkoutCRUD/AddWorkout";
 import CreateWorkout from "@/modules/WorkoutCRUD/CreateWorkout";
 import { useGymContext } from "@/store/useGymContext";
 import styles from "./today.module.css";
+import { Excercise, Workout } from "@prisma/client";
 
 function Today() {
   const { today } = useGymContext((state) => {
     return { today: state.today };
   });
+
+  console.log("🚀 ~ const{today}=useGymContext ~ today:", today);
 
   return (
     <div className="pt-[40px]">
@@ -25,10 +28,31 @@ function Today() {
         );
       })}
 
-      <div className="mt-20">
+      <div className="mt-8">
         <h1 className={styles.title}>Today</h1>
 
-        <WorkoutCard />
+        {Object.keys(today).map((todayBodyPartString: string) => {
+          const todayBodyPart = today[todayBodyPartString];
+
+          return (
+            <div key={todayBodyPart.name} className="my-2">
+              <div className="mt-10 flex justify-end">
+                <h2 className={styles.title}>{todayBodyPart.name}</h2>
+              </div>
+
+              {todayBodyPart.exercises.map((ex: Excercise) => {
+                return (
+                  <div key={ex.name} className="my-4">
+                    <WorkoutCard
+                      bodyPart={todayBodyPart.name}
+                      exerciseName={ex.name}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

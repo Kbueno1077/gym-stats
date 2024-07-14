@@ -1,8 +1,9 @@
 import { createStore } from "zustand";
 
 export interface GymProps {
-  addWorkoutToToday: any;
   today: TodayWorkouts;
+  addWorkoutToToday: (workout: Workouts) => void;
+  addExerciseToWorkoutToday: (bodyPart: string, exercise: Exercise) => void;
 }
 
 // export interface GymState extends GymProps {}
@@ -11,12 +12,30 @@ export type GymStore = ReturnType<typeof createGymStore>;
 
 type TodayWorkouts = Record<string, Workouts>;
 
-type Workouts = {
+export type Workouts = {
   name: string;
   exercises: Exercise[];
+  date?: Date;
 };
-type Exercise = {
+
+export type Exercise = {
   name: string;
+  sets?: Set[];
+  date?: Date;
+};
+
+export type Set = {
+  set_number: number;
+  reps: number;
+  weight: number;
+  assisted: boolean;
+  dropSets: boolean;
+  drops?: DropSet[];
+};
+
+export type DropSet = {
+  weights: number[];
+  reps: number[];
 };
 
 type DefaultProps = object;
@@ -44,6 +63,19 @@ export const createGymStore = (initProps: InitialProps) => {
         ...state,
         today: { ...state.today, [workout.name]: workout },
       }));
+    },
+
+    addExerciseToWorkoutToday: (bodyPart: string, exercise: Exercise) => {
+      const today = get().today;
+
+      if (today) {
+        today[bodyPart]?.exercises?.push(exercise);
+
+        set((state) => ({
+          ...state,
+          today,
+        }));
+      }
     },
   }));
 };

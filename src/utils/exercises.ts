@@ -1,3 +1,6 @@
+const lbsToKgs = (lbs: number) => lbs / 2.20462;
+const kgsToLbs = (kgs: number) => kgs * 2.20462;
+
 export const bodyParts = [
   "Chest",
   "Back",
@@ -13,11 +16,9 @@ export const mapBodyPartToExercises = {
       {
         name: "Chest Press",
       },
+
       {
         name: "Incline Chest Press",
-      },
-      {
-        name: "Decline Chest Press",
       },
 
       {
@@ -64,7 +65,7 @@ export const mapBodyPartToExercises = {
     ],
   },
 
-  Shouldes: {
+  Shoulders: {
     exercises: [
       {
         name: "Shoulder Press",
