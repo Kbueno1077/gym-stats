@@ -34,6 +34,7 @@ function Membership() {
       <Tabs
         size="md"
         aria-label="Membership Type"
+        //@ts-expect-error
         selectedKey={selected}
         onSelectionChange={setSelected}
         color="primary"

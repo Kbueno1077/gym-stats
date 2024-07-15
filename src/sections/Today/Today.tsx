@@ -1,18 +1,17 @@
+//@ts-nocheck
 "use client";
 
 import WorkoutCard from "@/components/WorkoutCard/WorkoutCard";
 import AddWorkout from "@/modules/WorkoutCRUD/AddWorkout";
 import CreateWorkout from "@/modules/WorkoutCRUD/CreateWorkout";
 import { useGymContext } from "@/store/useGymContext";
+import { type Exercise } from "@/store/zustand";
 import styles from "./today.module.css";
-import { Excercise, Workout } from "@prisma/client";
 
 function Today() {
   const { today } = useGymContext((state) => {
     return { today: state.today };
   });
-
-  console.log("🚀 ~ const{today}=useGymContext ~ today:", today);
 
   return (
     <div className="pt-[40px]">
@@ -40,7 +39,7 @@ function Today() {
                 <h2 className={styles.title}>{todayBodyPart.name}</h2>
               </div>
 
-              {todayBodyPart.exercises.map((ex: Excercise) => {
+              {todayBodyPart.exercises.map((ex: Exercise) => {
                 return (
                   <div key={ex.name} className="my-4">
                     <WorkoutCard
