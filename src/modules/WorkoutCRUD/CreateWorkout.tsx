@@ -11,11 +11,11 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { Excercise } from "@prisma/client";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import styles from "./workout.module.css";
+import { Exercise } from "@/store/zustand";
 
 export default function CreateWorkout() {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -25,7 +25,7 @@ export default function CreateWorkout() {
   const [bodyPart, setBodyPart] = useState<string>("");
   const [exercise, setExercise] = useState<string>("");
 
-  const exercises: Excercise[] = bodyPart
+  const exercises: Exercise[] = bodyPart
     ? //@ts-expect-error
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       mapBodyPartToExercises[bodyPart]?.exercises || []
@@ -111,7 +111,7 @@ export default function CreateWorkout() {
                   <>
                     <h1 className={styles.modalTitle}>Starting Exercise</h1>
                     <div className="flex gap-2 overflow-x-auto pb-2">
-                      {exercises.map((exer: Excercise) => {
+                      {exercises.map((exer: Exercise) => {
                         return (
                           <Button
                             key={exer.name}
