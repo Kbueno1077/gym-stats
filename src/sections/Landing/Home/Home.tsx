@@ -13,7 +13,7 @@ function Home() {
           <h1 className={styles.title}>GET FIT AND FEEL GREAT</h1>
           <h3 className={styles.subtitle}>
             Ipsum available, but the majority have suffered alternation in some
-            form, by injected humour, and randomised words which don't
+            form, by injected humour, and randomised words which don`t
           </h3>
 
           <div className="mt-5 flex items-center justify-center gap-2 md:mt-2">
