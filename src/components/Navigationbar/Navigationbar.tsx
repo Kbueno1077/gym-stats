@@ -1,21 +1,7 @@
 "use client";
 
-import React from "react";
-import {
-  Button,
-  ButtonGroup,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import styles from "./navigationBar.module.css";
-import SettingsDropDown from "@/components/SettingsDropDown/SettingsDropDown";
-
-import { HiSearch } from "react-icons/hi";
-import { CiFilter } from "react-icons/ci";
-import { MdSort } from "react-icons/md";
 
 export default function Navigationbar() {
   return (
@@ -43,36 +29,6 @@ export default function Navigationbar() {
         <NavbarBrand>
           <p className={styles.title}>FITNESS</p>
         </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent justify="end">
-        {/* <ButtonGroup>
-          <Button
-            isIconOnly
-            color="primary"
-            variant="faded"
-            aria-label="Search"
-          >
-            <HiSearch />
-          </Button>
-
-          <Button
-            isIconOnly
-            color="primary"
-            variant="faded"
-            aria-label="Filter"
-          >
-            <CiFilter />
-          </Button>
-
-          <Button isIconOnly color="primary" variant="faded" aria-label="Sort">
-            <MdSort />
-          </Button>
-        </ButtonGroup> */}
-
-        <div className="ml-[5px]">
-          <SettingsDropDown />
-        </div>
       </NavbarContent>
     </Navbar>
   );

@@ -52,7 +52,7 @@ function Footer() {
           </div>
 
           <div>
-            <span className="text-xl text-gray-500">2023</span>
+            <span className="text-xl text-gray-500">2024</span>
           </div>
         </div>
       </div>

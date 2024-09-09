@@ -1,11 +1,11 @@
-import "@/styles/globals.css";
-import "./fonts.css";
-
 import Navigationbar from "@/components/Navigationbar/Navigationbar";
 import Footer from "@/sections/Footer/Footer";
 import { GeistSans } from "geist/font/sans";
 import localFont from "next/font/local";
 import { Providers } from "./providers";
+
+import "./fonts.css";
+import "./globals.css";
 
 export const metadata = {
   title: "Gym Stats",

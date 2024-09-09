@@ -1,3 +1,6 @@
+import { useGymContext } from "@/store/useGymContext";
+import { type Exercise } from "@/store/zustand";
+import { mapBodyPartToExercises } from "@/utils/exercises";
 import {
   Button,
   Modal,
@@ -7,13 +10,9 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { useTheme } from "next-themes";
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import styles from "./workout.module.css";
-import { mapBodyPartToExercises } from "@/utils/exercises";
-import { useGymContext } from "@/store/useGymContext";
-import { Exercise } from "@/store/zustand";
 
 interface AddWorkoutProps {
   bodyPart: string;
@@ -21,9 +20,7 @@ interface AddWorkoutProps {
 
 export default function AddWorkout({ bodyPart }: AddWorkoutProps) {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const { theme, resolvedTheme } = useTheme();
   const [exercise, setExercise] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { today, addExerciseToWorkoutToday } = useGymContext((state) => {
     return {

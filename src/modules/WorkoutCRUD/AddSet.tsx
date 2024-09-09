@@ -1,5 +1,6 @@
 //@ts-ignore
 
+import { type DropSet } from "@/store/zustand";
 import {
   Accordion,
   AccordionItem,
@@ -12,13 +13,11 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { useTheme } from "next-themes";
 import { useState } from "react";
+import { GiDroplets } from "react-icons/gi";
+import { IoIosHelpBuoy } from "react-icons/io";
 import { IoAdd } from "react-icons/io5";
 import styles from "./workout.module.css";
-import { IoIosHelpBuoy } from "react-icons/io";
-import { GiDroplets } from "react-icons/gi";
-import { DropSet } from "@/store/zustand";
 
 interface AddSetProps {
   bodyPart: string;
@@ -27,7 +26,6 @@ interface AddSetProps {
 
 export default function AddSet({ bodyPart, exercise }: AddSetProps) {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const { theme, resolvedTheme } = useTheme();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [weightMetric, setWeightMetric] = useState<string>("lbs");

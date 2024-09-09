@@ -1,6 +1,7 @@
 "use client";
 
 import { useGymContext } from "@/store/useGymContext";
+import { type Exercise } from "@/store/zustand";
 import { bodyParts, mapBodyPartToExercises } from "@/utils/exercises";
 import {
   Button,
@@ -11,15 +12,12 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import { useTheme } from "next-themes";
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import styles from "./workout.module.css";
-import { Exercise } from "@/store/zustand";
 
 export default function CreateWorkout() {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const { theme, resolvedTheme } = useTheme();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [bodyPart, setBodyPart] = useState<string>("");
